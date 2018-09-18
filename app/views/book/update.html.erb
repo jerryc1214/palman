@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/book/main">팔만고전경판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/book/notice">공지사항 <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/book/minum" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          출판사
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/book/minum">민음사</a>
+          <a class="dropdown-item" href="/book/openbooks">열린책들</a>
+          <a class="dropdown-item" href="/book/eulyoo">을유 문화사</a>
+          <a class="dropdown-item" href="/book/penguin">펭귄 클래식</a>
+          <a class="dropdown-item" href="/book/munhak">문학 동네</a>
+        </div>
+      </li>
+      <a class="nav-item nav-link" href="/book/search">검색</a>
+      <a class="nav-item nav-link" href="/book/community">커뮤니티</a>
+      <a class="nav-item nav-link disabled" href="/book/maker">만든이</a>
+    </div>
+  </div>
+</nav>
+
+<form action="/update_action/<%=@update_post.id%>">
+<center>
+<br><br>
+<table class="table table-bordered" style="width: 800px;">
+  <tbody>
+    <tr>
+      <th scope="row" width=100 height=10><center><font color="gold">제목</center></th>
+      <td><center><input type="text" name="title" style="width:98%" value="<%=@update_post.title%>"></center></td>
+    </tr>
+    <tr>
+        <th scope="row"><center><font color="gold">작성자</center></th>
+        <td><center><input type="text" name="writer" style="width:98%" value="<%=@update_post.writer%>"></center></td>
+    </tr>
+    <tr>
+        <th scope="row" height=200><center><font color="gold">내용</center></th>
+        <td><center><textarea name="content" style="width: 98%; height: 200px;"><%=@update_post.content%></textarea></center></td>
+    </tr>
+    <tr>
+        <th scope="row"><center><font color="gold">비밀번호</center></th>
+        <td><center><input type="password" name="password"></center></td>
+    </tr>
+  </tbody>
+</table>
+<button type="submit" class="btn btn-outline-primary">수정</button>
+<a class="btn btn-outline-primary" href="/book/community" role="button">글 목록</a>
+</form>
+<br>
+<br><br><br>
+
+<footer class="bottom">
+    <span class="copyright">Copyright &copy; 영남대 멋쟁이사자처럼 2018</span>
+</footer>

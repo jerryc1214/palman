@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/book/main">팔만고전경판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/book/notice">공지사항 <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/book/minum" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          출판사
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/book/minum">민음사</a>
+          <a class="dropdown-item" href="/book/openbooks">열린책들</a>
+          <a class="dropdown-item" href="/book/eulyoo">을유 문화사</a>
+          <a class="dropdown-item" href="/book/penguin">펭귄 클래식</a>
+          <a class="dropdown-item" href="/book/munhak">문학 동네</a>
+        </div>
+      </li>
+      <a class="nav-item nav-link" href="/book/search">검색</a>
+      <a class="nav-item nav-link" href="/book/community">커뮤니티</a>
+      <a class="nav-item nav-link disabled" href="/book/maker">만든이</a>
+    </div>
+  </div>
+</nav>
+
+<center>
+
+<br>사용자들과 의견을 나눌 수 있는 게시판입니다.<br>
+책과 출판사에 대한 의견이나, 감상평을 자유롭게 나누어 보세요.<br>
+
+<br>
+<button type="button" class="btn btn-light"><a href='/write'>글쓰기</a></button>
+<br><hr>
+
+<table class="table table-striped" style="width: 1100px;">
+  <thead>
+    <tr>
+      <th scope="col"><center>번호</center></th>
+      <th scope="col" width=400><center>제목</center></th>
+      <th scope="col"><center>글쓴이</center></th>
+      <th scope="col"><center>작성시간</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |p|%>
+
+    <tr>
+      <th scope="row"><center><%=p.id%></center></th>
+      <td><center><a href="/read/<%=p.id%>"><%=p.title%> <font color="gold">[<%@pid = p.id%><%=Comment.where(post: @pid).count%>]</font></a></center></td>
+      <td><center><%=p.writer%></center></td>
+      <td><center><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d %H:%M:%S")%></center></td>
+    </tr>
+    <%end%>  
+  </tbody>
+</table>
+<br>
+
+
+
+<div class="container pagination justify-content-center" >
+  <%= paginate @posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm" %>
+</div>
+
+<br><br><br>
+
+<footer class="bottom">
+    <span class="copyright">Copyright &copy; 영남대 멋쟁이사자처럼 2018</span>
+</footer>
+

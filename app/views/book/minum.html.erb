@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/book/main">팔만고전경판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/book/notice">공지사항 <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/book/minum" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          출판사
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/book/minum">민음사</a>
+          <a class="dropdown-item" href="/book/openbooks">열린책들</a>
+          <a class="dropdown-item" href="/book/eulyoo">을유 문화사</a>
+          <a class="dropdown-item" href="/book/penguin">펭귄 클래식</a>
+          <a class="dropdown-item" href="/book/munhak">문학 동네</a>
+        </div>
+      </li>
+      <a class="nav-item nav-link" href="/book/search">검색</a>
+      <a class="nav-item nav-link" href="/book/community">커뮤니티</a>
+      <a class="nav-item nav-link disabled" href="/book/maker">만든이</a>
+    </div>
+  </div>
+</nav>
+<center>
+<br>
+<font color="white">
+<h2>< 민음사 특징 ></h2>
+    1998년부터 발간하기 시작했으며, 가장 작품이 많다.<br>
+    사실상 세계문학전집의 선구자 역할을 하고 있으며, 대중들에게도 가장 많이 알려져 있는 출판사이다.<br>
+    현재 2018년 8월 기준으로 356권이 발간되어 있으며, 매년 추가 되고 있다.<br>
+    다양하고 작품의 스펙트럼이 넓다.<br>
+<br>
+<h2>< 디자인 ></h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="1000" style="width: 200px; align="center"">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="/img/minum/1984.PNG" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/img/minum/노인과바다.PNG" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/img/minum/오만과편견-민음사.PNG" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/img/minum/데미안-민음사.PNG">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/img/minum/위대한개츠비.PNG">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="/img/minum/동물농장-민음사.PNG">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+<br>
+    <img src="/img/minum/민음사.jpg" width=500><br><br>
+    소프트 커버이며, 책이 세로로 길쭉한 판형이라 호불호가 갈린다.<br>
+    윗부분에 일러스트나 작가사진이 들어가 있는 디자인이다.<br>
+    책등에는 대부분 작가사진이 들어간다.<br>
+    90년대부터 펴내기 시작했기 때문에 표지 디자인이 낡은 느낌을 준다는 평이 많다.<br>
+<br>
+<h2>< 번역 ></h2>
+    <img src="/img/minum/1984번역.PNG" width=1000><br>
+    조지 오웰 - 1984<br><br>
+    번역가마다 스타일이 다르지만, 민음사 책들 전반적으로 의역보다 직역에 집중하여 조금 딱딱하게 느껴지는 문체가 특징이다.<br>
+    원작에 충실한 것이 장점이지만, 다르게 말하면 난이도가 있다고 할 수 있다.<br>
+    불친절한 번역이라는 평을 듣기도 하는 반면 시적인 번역이라며 선호하는 이들도 있다.<br>
+<br>
+<table class="table table-striped" style="width: 1100px; align="center"">
+  <thead>
+     <tr class="table-info">
+      <th scope="col" width=100><font color="navy">번호</th>
+      <th scope="col"><font color="navy">제목</th>
+      <th scope="col"><font color="navy">글쓴이</th>
+      <th scope="col"><font color="navy">역자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @minum.each do |m|%>
+    <tr>
+      <th scope="row"><%=m.id%></th>
+      <td><%=m.book_title%></td>
+      <td><%=m.book_writer%></td>
+      <td><%=m.book_translator%></td>
+    </tr>
+    <%end%>  
+  </tbody>
+</table>
+
+<br><br><br><br>
+<footer class="bottom">
+    <span class="copyright">Copyright &copy; 영남대 멋쟁이사자처럼 2018</span>
+</footer>
+
+</center>
+</font>

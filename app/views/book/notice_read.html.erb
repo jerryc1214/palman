@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/book/main">팔만고전경판</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="/book/notice">공지사항 <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/book/minum" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          출판사
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/book/minum">민음사</a>
+          <a class="dropdown-item" href="/book/openbooks">열린책들</a>
+          <a class="dropdown-item" href="/book/eulyoo">을유 문화사</a>
+          <a class="dropdown-item" href="/book/penguin">펭귄 클래식</a>
+          <a class="dropdown-item" href="/book/munhak">문학 동네</a>
+        </div>
+      </li>
+      <a class="nav-item nav-link" href="/book/search">검색</a>
+      <a class="nav-item nav-link" href="/book/community">커뮤니티</a>
+      <a class="nav-item nav-link disabled" href="/book/maker">만든이</a>
+    </div>
+  </div>
+</nav>
+
+<center>
+<br><br>
+<table class="table table-bordered" style="width: 800px;">
+  <tbody>
+    <tr>
+      <th scope="row" width=100 height=10><center><font color="gold">제목</center></th>
+      <td><center><%=@find_post.title%></center></td>
+    </tr>
+    <tr>
+        <th scope="row"><center><font color="gold">작성자</center></th>
+        <td><center>관리자</center></td>
+    </tr>
+    <tr>
+        <th scope="row" height=200><center><font color="gold">내용</center></th>
+        <td><center><%=@find_post.content%></center></td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-outline-primary" id="updateOpenModal" data-toggle="modal" data-target="#updateModal" data-title="data">관리자 수정</button>
+<button type="button" class="btn btn-outline-primary" id="deleteOpenModal" data-toggle="modal" data-target="#exampleModal" data-title="data">관리자 삭제</button>
+<a class="btn btn-outline-primary" href="/book/notice" role="button">글 목록</a>
+</center>
+
+<form action="/password_noticeupdate_action/<%=@find_post.id%>">
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateModalLabel">관리자 비밀번호 확인!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label"><font color="black">관리자 비밀번호를 입력하세요.</font></label>
+            <input type="password" class="form-control" name="input_password"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="delete">수정</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<script>
+$('#updateModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  var modal = $(this)
+  var deleteUrl = button.data('title');
+  modal.find('.modal-title').text('비밀번호 확인')
+  modal.find('.modal-body input')
+
+});
+
+</script>
+
+<form action="/password_notice_action/<%=@find_post.id%>">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">관리자 비밀번호 확인!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label"><font color="black">관리자 비밀번호를 입력하세요.</font></label>
+            <input type="password" class="form-control" name="input_password"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="delete">삭제</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  var modal = $(this)
+  var deleteUrl = button.data('title');
+  modal.find('.modal-title').text('비밀번호 확인')
+  modal.find('.modal-body input')
+
+});
+
+
+</script>
+
+
+<br><br>
+<br>
+<br>
+<br>
+<br>
+
+<center>
+<footer class="bottom">
+    <span class="copyright">Copyright &copy; 영남대 멋쟁이사자처럼 2018</span>
+</footer>
+</center>
